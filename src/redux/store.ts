@@ -8,6 +8,7 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredPaths: ["ApiMoverData.apiData.0"],
+        
       },
     }),
 });
