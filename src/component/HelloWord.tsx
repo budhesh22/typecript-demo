@@ -1,7 +1,7 @@
 const HelloWord = () => {
   return (
     <div>
-      <h1>HelloWorld</h1>
+      <h1>HelloWorld with type scripts</h1>
     </div>
   );
 };
