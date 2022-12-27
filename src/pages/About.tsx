@@ -11,6 +11,7 @@ const About = () => {
     firstName: "one",
     secondName: "two",
     userName: "oneTwo",
+    
   };
 
   console.log("objectData: ", objectData);
