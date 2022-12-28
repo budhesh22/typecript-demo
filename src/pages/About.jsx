@@ -1,13 +1,11 @@
-import { arrayList, objectList } from "../interfaces/demoInterface";
-
 const About = () => {
   // Array Practice
-  let arrayData: arrayList = ["First", 56456, "Second"];
+  let arrayData = ["First", 56456, "Second"];
   console.log("arrayData:", arrayData);
 
   // Object Practice
 
-  let objectData: objectList = {
+  let objectData = {
     firstName: "one",
     secondName: "two",
     userName: "oneTwo",
