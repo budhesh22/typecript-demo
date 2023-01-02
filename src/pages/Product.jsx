@@ -34,7 +34,7 @@ const Product = () => {
                 <img
                   src={product.image}
                   alt="product-img"
-                  width="80%"
+                  width="50%"
                   height="40%"
                 />
               </div>

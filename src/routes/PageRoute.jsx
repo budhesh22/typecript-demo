@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 import PublicLayout from "../layout/PublicLayout";
+import News from "../pages/News";
 
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
@@ -35,6 +36,14 @@ const PageRoute = () => {
           element={
             <Suspense fallback={"loading"}>
               <Product />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/news"
+          element={
+            <Suspense fallback={"loading"}>
+              <News />
             </Suspense>
           }
         />

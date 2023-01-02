@@ -24,7 +24,6 @@ export const FakeStoreSlice = createSlice({
   initialState: initialState,
   reducers: {
     FAKE_STORE_MAIN: (state, action) => {
-      console.log("fakeStoreAction:", action);
       switch (action.payload.type) {
         case FAKE_STORE_DATA_LOADING:
           return {
