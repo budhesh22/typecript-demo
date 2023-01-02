@@ -31,6 +31,7 @@ const Product = () => {
               <div className="product-list text-center">
                 <h4>{product.category}</h4>
                 <p>{product.description.slice(0, 40)}</p>
+                
                 <img
                   src={product.image}
                   alt="product-img"
