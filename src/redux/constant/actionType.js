@@ -1,0 +1,10 @@
+// Counter Type
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const MULTIPLY = "MULTIPLY";
+
+// Fake Store Type
+export const FAKE_STORE_DATA_LOADING = "FAKE_STORE_DATA_LOADING";
+export const FAKE_STORE_DATA_SUCCESS = "FAKE_STORE_DATA_SUCCESS";
+export const FAKE_STORE_DATA_ERROR = "FAKE_STORE_DATA_ERROR";
+export const FAKE_STORE_ACTION_MAIN = "FAKE_STORE_ACTION_MAIN";

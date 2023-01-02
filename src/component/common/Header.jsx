@@ -16,6 +16,9 @@ const Header = () => {
             <Link to="/about" className="nav-link text-light">
               <h5>About</h5>
             </Link>
+            <Link to="/product" className="nav-link text-light">
+              <h5>Product</h5>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
