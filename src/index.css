@@ -8,7 +8,58 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* Main PublicRoute Css */
 .main-content {
   min-height: calc(100vh - 128px);
+}
+
+/* Mui Demo Css */
+.item-heading,
+.stack-item {
+  border: 2px solid rgb(206, 127, 127);
+  background-color: chocolate;
+  color: white;
+  padding: 4px;
+}
+
+/* Sign-in & Sign-up Page*/
+.main-form {
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+.form-title {
+  background-color: rgb(72, 59, 59);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 1000;
+  border-radius: 12px;
+}
+
+.btn-sign {
+  margin: 0px 10px !important;
+}
+.submit-btn {
+  text-align: center;
+  margin-top: 18px !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  padding: 6px 16px;
+}
+
+/* React-Bootstrap Navbar Css  */
+
+.dropdown-toggle {
+  color: white !important;
+  font-size: 21px !important;
+}
+
+.dropdown-menu {
+  background-color: #0dcaf0 !important;
 }

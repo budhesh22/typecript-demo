@@ -1,3 +1,4 @@
+import { NavDropdown } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,18 +11,23 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/" className="nav-link text-light">
-              <h5>Home</h5>
-            </Link>
-            <Link to="/about" className="nav-link text-light">
-              <h5>About</h5>
-            </Link>
-            <Link to="/product" className="nav-link text-light">
-              <h5>Product</h5>
-            </Link>
-            <Link to="/news" className="nav-link text-light">
-              <h5>News</h5>
-            </Link>
+            <NavDropdown title="Demo-List" id="basic-nav-dropdown">
+              <Link to="/sign-in" className="nav-link text-light text-center">
+                <h6>SignIn</h6>
+              </Link>
+              <Link to="/sign-up" className="nav-link text-light text-center">
+                <h6>SignUp</h6>
+              </Link>
+              <Link to="/product" className="nav-link text-center text-light">
+                <h6>Product</h6>
+              </Link>
+              <Link to="/news" className="nav-link text-center text-light">
+                <h6>News</h6>
+              </Link>
+              <Link to="/mui" className="nav-link text-center text-light">
+                <h6>Mui</h6>
+              </Link>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
