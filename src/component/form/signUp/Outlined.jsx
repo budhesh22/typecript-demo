@@ -1,20 +1,25 @@
+import React from "react";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
+  Alert,
   Button,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
   OutlinedInput,
-  TextField,
+  Select,
+  Snackbar,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import YupSchema from "../../../validation/YupSchema";
-import { toast } from "react-toastify";
+
 import InputField from "../../common/InputField";
+import YupSchema from "../../../validation/YupSchema";
+import MenuItems from "../../common/MenuItems";
 
 const Outlined = () => {
   //   Add Validation -- Use By React-Hook-Form
@@ -33,8 +38,9 @@ const Outlined = () => {
   );
 
   const formSubmit = (data) => {
-    toast.success("User Register SuccessFully");
+    toast.success(" User Register SuccessFully");
     reset();
+    console.log("Data:", data);
     if (getUserRegisterUser.length > 0) {
       // Store The User Register Data In LocalStorage
       localStorage.setItem(
@@ -60,95 +66,97 @@ const Outlined = () => {
         </Typography>
 
         <Typography className="form-field" variant="div" component="div">
-          <TextField
+          {/* FirstName TextField */}
+          <InputField
             name="firstName"
-            id="outlined-basic"
             label="FirstName"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("firstName")}
+            inputRef={register}
             error={Boolean(errors?.firstName)}
             helperText={errors?.firstName?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-          <TextField
+          {/* LastName TextField */}
+          <InputField
             name="lastName"
-            id="outlined-basic"
             label="LastName"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("lastName")}
+            inputRef={register}
             error={Boolean(errors?.lastName)}
             helperText={errors?.lastName?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-
-          <TextField
+          {/* Email TextField */}
+          <InputField
             name="email"
-            id="outlined-basic"
             label="Email"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("email")}
+            inputRef={register}
             error={Boolean(errors?.email)}
             helperText={errors?.email?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-          <TextField
+          {/* Phone TextField */}
+          <InputField
             name="phone"
-            id="outlined-basic"
             label="Phone"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("phone")}
+            inputRef={register}
             error={Boolean(errors?.phone)}
             helperText={errors?.phone?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-          <TextField
+          {/* City TextField */}
+          <InputField
             name="city"
-            id="outlined-basic"
             label="City"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("city")}
+            inputRef={register}
             error={Boolean(errors?.city)}
             helperText={errors?.city?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-          <TextField
+          {/* PinCode TextField */}
+          <InputField
             name="pinCode"
-            id="outlined-basic"
             label="PinCode"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("pinCode")}
+            inputRef={register}
             error={Boolean(errors?.pinCode)}
             helperText={errors?.pinCode?.message}
-            inputProps={{ autoComplete: "off" }}
           />
-          <TextField
-            name="userName"
-            id="outlined-basic"
-            label="UserName"
-            variant="outlined"
+          {/* Gender TextField */}
+          <FormControl
+            fullWidth
+            sx={{ mt: 2 }}
             size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("userName")}
+            color="success"
+            focused
+            error={Boolean(errors?.gender)}
+          >
+            <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Gender"
+              name="gender"
+              {...register("gender")}
+              defaultValue={"DEFAULT"}
+            >
+              {MenuItems?.map((item, index) => (
+                <MenuItem value={item ? item?.value : ""} key={index}>
+                  {item ? item?.name : ""}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Typography component="p" variant="p" className="error-message">
+            {errors?.gender?.message}
+          </Typography>
+          {/* UserName TextField */}
+          <InputField
+            name="userName"
+            label="UserName"
+            inputRef={register}
             error={Boolean(errors?.userName)}
             helperText={errors?.userName?.message}
-            inputProps={{ autoComplete: "off" }}
           />
+          {/* Password TextField */}
           <FormControl
             sx={{ width: "100%", mt: 2 }}
             variant="outlined"
             size="small"
+            color="success"
+            focused
             error={Boolean(errors?.password)}
           >
             <InputLabel htmlFor="outlined-adornment-password">
@@ -176,22 +184,23 @@ const Outlined = () => {
           <Typography component="p" variant="p" className="error-message">
             {errors?.password?.message}
           </Typography>
-          <TextField
+          {/* ConfirmPassword TextField */}
+          <InputField
             name="confirmPassword"
-            id="outlined-basic"
             label="ConfirmPassword"
-            variant="outlined"
-            size="small"
-            sx={{ width: "100%", mt: 2 }}
-            {...register("confirmPassword")}
+            inputRef={register}
             error={Boolean(errors?.confirmPassword)}
             helperText={errors?.confirmPassword?.message}
-            inputProps={{ autoComplete: "off" }}
           />
         </Typography>
 
         <Typography className="submit-btn" variant="div" component="div">
-          <Button variant="contained" className="btn btn-sign" type="submit">
+          <Button
+            variant="contained"
+            className="btn btn-sign"
+            type="submit"
+            color="success"
+          >
             signUp
           </Button>
         </Typography>

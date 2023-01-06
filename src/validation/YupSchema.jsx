@@ -15,6 +15,7 @@ const YupSchema = Yup.object().shape({
   pinCode: Yup.string()
     .required("required")
     .matches(/^[1-9]\d{5}$/, "Enter Valid Code"),
+  gender: Yup.string().required("required"),
   userName: Yup.string().required("required"),
   password: Yup.string().required("required").min(6).max(14),
   confirmPassword: Yup.string().oneOf(

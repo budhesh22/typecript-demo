@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
-import { Box, Stack } from "@mui/system";
+
+import { Box } from "@mui/system";
+import { Avatar, Grid, Typography } from "@mui/material";
 
 import img from "../assets/images/img.jpg";
 
@@ -17,10 +18,18 @@ const MuiGrid = () => {
       >
         <Grid item md={4} sm={6} xs={12}>
           <Typography className="grid-first-item" variant="div" component="div">
-            <h3 className="item-heading">
-              First-Grid
-              <img src={img} alt="home-img" width="100%" />
-            </h3>
+            <h3 className="item-heading">First-Grid</h3>
+            <Typography
+              component="div"
+              variant="div"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <Avatar src={img} alt="home-img" width="100%" />
+            </Typography>
           </Typography>
         </Grid>
 
@@ -30,28 +39,38 @@ const MuiGrid = () => {
             variant="div"
             component="div"
           >
-            <h3 className="item-heading">
-              Second-Grid <img src={img} alt="home-img" width="100%" />
-            </h3>
+            <h3 className="item-heading">Second-Grid</h3>
+            <Typography
+              component="div"
+              variant="div"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <Avatar src={img} alt="home-img" width="100%" />
+            </Typography>
           </Typography>
         </Grid>
 
         <Grid item md={4} sm={6} xs={12}>
           <Typography variant="div" className="grid-third-item" component="div">
-            <h3 className="item-heading">
-              Third-Grid <img src={img} alt="home-img" width="100%" />
-            </h3>
+            <h3 className="item-heading">Third-Grid</h3>
+            <Typography
+              component="div"
+              variant="div"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <Avatar src={img} alt="home-img" width="100%" />
+            </Typography>
           </Typography>
         </Grid>
       </Grid>
-      {/* Stack Demo */}
-      <Stack spacing={2} textAlign="center" justifyContent="center">
-        <Typography className="main-stack-item" component="div" variant="div">
-          <h3 className="stack-item">First-Stack</h3>
-          <h3 className="stack-item">Second-Stack</h3>
-          <h3 className="stack-item">Third-Stack</h3>
-        </Typography>
-      </Stack>
     </Box>
   );
 };

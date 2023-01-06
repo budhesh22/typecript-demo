@@ -1,4 +1,7 @@
 import React from "react";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -9,9 +12,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
 const Outlined = () => {
   //   Add Validation -- Use By React-Hook-Form
@@ -54,6 +54,8 @@ const Outlined = () => {
         </Typography>
         <TextField
           id="outlined-basic"
+          color="warning"
+          focused
           label="userName"
           variant="outlined"
           size="small"
@@ -69,6 +71,8 @@ const Outlined = () => {
         <FormControl
           sx={{ width: "100%", mt: 2 }}
           variant="outlined"
+          color="warning"
+          focused
           size="small"
           error={Boolean(errors?.password)}
         >
@@ -108,11 +112,13 @@ const Outlined = () => {
           {errors?.password?.message}
         </Typography>
         <Typography className="submit-btn" variant="div" component="div">
-          <Button variant="contained" className="btn btn-sign" type="submit">
+          <Button
+            variant="contained"
+            className="btn btn-sign"
+            type="submit"
+            color="warning"
+          >
             SignIn
-          </Button>
-          <Button variant="outlined" className="btn btn-sign">
-            Forgot
           </Button>
         </Typography>
       </Typography>

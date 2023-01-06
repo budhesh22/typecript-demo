@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 
 import PublicLayout from "../layout/PublicLayout";
+import MuiAll from "../pages/MuiAll";
 import MuiGrid from "../pages/MuiGrid";
 
 const Login = lazy(() => import("../screens/Login"));
@@ -40,6 +41,15 @@ const PageRoute = () => {
           element={
             <Suspense fallback={"loading"}>
               <MuiGrid />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/mui-all"
+          element={
+            <Suspense fallback={"loading"}>
+              <MuiAll />
             </Suspense>
           }
         />

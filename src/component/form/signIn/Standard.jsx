@@ -1,4 +1,7 @@
 import React from "react";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -9,9 +12,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { toast } from "react-toastify";
-import { useForm } from "react-hook-form";
 
 const Standard = () => {
   //   Add Validation -- Use By React-Hook-Form
@@ -53,6 +53,8 @@ const Standard = () => {
           Sign In
         </Typography>
         <TextField
+          color="info"
+          focused
           id="standard-basic"
           label="userName"
           variant="standard"
@@ -68,6 +70,8 @@ const Standard = () => {
         />
         <FormControl
           sx={{ width: "100%", mt: 2 }}
+          color="info"
+          focused
           variant="standard"
           size="small"
           error={Boolean(errors?.password)}
@@ -109,13 +113,10 @@ const Standard = () => {
           <Button
             variant="contained"
             className="btn btn-sign"
-            color="warning"
+            color="info"
             type="submit"
           >
             SignIn
-          </Button>
-          <Button variant="outlined" className="btn btn-sign">
-            Forgot
           </Button>
         </Typography>
       </Typography>
