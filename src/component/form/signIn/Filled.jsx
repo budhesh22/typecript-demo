@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
@@ -18,6 +18,7 @@ const Filled = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,8 +28,9 @@ const Filled = () => {
   //   FormSubmit Function
   const formSubmit = (data) => {
     toast.success("User Login SuccessFull");
-    console.log("data: ", data);
+    reset();
     if (getSignInUser.length > 0) {
+      // Store The User Login Data In LocalStorage
       localStorage.setItem("sign-in", JSON.stringify([...getSignInUser, data]));
     } else {
       localStorage.setItem("sign-in", JSON.stringify([data]));
@@ -52,15 +54,17 @@ const Filled = () => {
         </Typography>
         <TextField
           id="filled-basic"
-          {...register("userName", { required: "required", maxLength: 20 })}
-          label="userName or Email"
+          label="userName"
           variant="filled"
           size="small"
+          sx={{ width: "100%", mt: 2 }}
+          {...register("userName", {
+            required: "required",
+          })}
           name="userName"
           error={Boolean(errors?.userName)}
           helperText={errors?.userName?.message}
           inputProps={{ autoComplete: "off" }}
-          sx={{ width: "100%", mt: 2 }}
         />
         <FormControl
           sx={{ width: "100%", mt: 2 }}

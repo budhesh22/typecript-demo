@@ -1,9 +1,10 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
+
 import img from "../assets/images/img.jpg";
 
-const Mui = () => {
+const MuiGrid = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       {/* Grid Demo */}
@@ -55,4 +56,4 @@ const Mui = () => {
   );
 };
 
-export default Mui;
+export default MuiGrid;
