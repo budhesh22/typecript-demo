@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
+import Error from "../component/common/Error";
 
 import PublicLayout from "../layout/PublicLayout";
 import MuiAll from "../pages/MuiAll";
@@ -54,6 +55,14 @@ const PageRoute = () => {
           }
         />
       </Route>
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={"loading"}>
+            <Error />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 };
