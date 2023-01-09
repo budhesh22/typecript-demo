@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+
+import { Grid, Typography } from "@mui/material";
+
 import { FAKE_STORE_ACTION_MAIN } from "../redux/constant/actionType";
 import {
   FAKE_STORE_LOADING,
-  FAKE_STORE_MESSAGE,
   FAKE_STORE_SUCCESS,
 } from "../redux/reducers/FakeStoreSlice";
+import { Container } from "react-bootstrap";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -17,33 +20,48 @@ const Product = () => {
 
   const isLoading = useSelector(FAKE_STORE_LOADING);
   const product = useSelector(FAKE_STORE_SUCCESS);
-  const message = useSelector(FAKE_STORE_MESSAGE);
 
   return (
-    <div className="container">
-      <div className="row">
+    <Container className="mt-4">
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          margin: "12px",
+        }}
+      >
         {isLoading ? (
-          <h4 className="m-4">Loading Please Wait ...</h4>
+          <Typography component="p" variant="p">
+            Product Loading Please Wait
+          </Typography>
         ) : (
-          message.success &&
-          product.map((product, index) => (
-            <div className="col-md-4" key={index}>
-              <div className="product-list text-center">
-                <h4>{product.category}</h4>
-                <p>{product.description.slice(0, 40)}</p>
-                
+          product?.map((product, index) => (
+            <Grid md={4} sm={6} xs={12} item key={index}>
+              <Typography component="div" variant="div" className="text-center">
+                <Typography
+                  component="h5"
+                  variant="h5"
+                  sx={{
+                    fontWeight: "1200",
+                  }}
+                >
+                  {product.category}
+                </Typography>
+                <Typography component="p" variant="p">
+                  {product.description.slice(0, 40)}
+                </Typography>
                 <img
                   src={product.image}
                   alt="product-img"
                   width="50%"
                   height="40%"
                 />
-              </div>
-            </div>
+              </Typography>
+            </Grid>
           ))
         )}
-      </div>
-    </div>
+      </Grid>
+    </Container>
   );
 };
 

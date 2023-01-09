@@ -12,3 +12,8 @@ body {
 .main-content {
   min-height: calc(100vh - 128px);
 }
+
+.news-main {
+  border: 2px solid black;
+  
+}

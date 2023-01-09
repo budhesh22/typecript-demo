@@ -13,7 +13,7 @@ function* newsApi() {
   try {
     let response = yield call(() =>
       axios.get(
-        "https://newsapi.org/v2/everything?q=tesla&from=2022-12-02&sortBy=publishedAt&apiKey=ced85851a69b4b31ae9964b6a1101723"
+        "https://newsapi.org/v2/everything?q=tesla&from=2022-12-09&sortBy=publishedAt&apiKey=974a219afebb42c4ba4f437d795256f9"
       )
     );
     yield put(NEWS_MAIN({ type: NEWS_DATA_SUCCESS, payload: response.data }));

@@ -1,17 +1,13 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
+import Error from "../component/common/Error";
 import PublicLayout from "../layout/PublicLayout";
 import News from "../pages/News";
 
-const Home = lazy(() => import("../pages/Home"));
-const About = lazy(() => import("../pages/About"));
+const Counter = lazy(() => import("../pages/Counter"));
 const Product = lazy(() => import("../pages/Product"));
 
 const PageRoute = () => {
-  const propsData = {
-    buy: "buy Three",
-    discount: "Get five product",
-  };
   return (
     <Routes>
       <Route element={<PublicLayout />}>
@@ -19,15 +15,15 @@ const PageRoute = () => {
           path="/"
           element={
             <Suspense fallback={"loading"}>
-              <Home propsData={propsData} />
+              <Product />
             </Suspense>
           }
         />
         <Route
-          path="/about"
+          path="/counter"
           element={
             <Suspense fallback={"loading"}>
-              <About />
+              <Counter />
             </Suspense>
           }
         />
@@ -48,6 +44,14 @@ const PageRoute = () => {
           }
         />
       </Route>
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={"loading"}>
+            <Error />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 };
